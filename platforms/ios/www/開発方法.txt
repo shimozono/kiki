@@ -1,0 +1,90 @@
+要件PhoneGapを使用したアプリ開発
+
+■使用技術
+	・http通信
+		・jquery：ajax
+	・sqlite
+	・phonegap
+	
+
+■開発環境
+	１．node.jsのインストール
+		http://nodejs.org/dist/v0.10.21/x64/node-v0.10.21-x64.msi
+	
+	２．phonegapのインストール
+		コマンドラインで以下を実行。
+		npm install -g phonegap
+	
+	３．アカウントの作成（ビルドする際に必要）
+		https://build.phonegap.com/plans/free-adobeid
+		
+	４．デバッガプラグイン（google chrome上でデバッグするのに必要）
+		http://emulate.phonegap.com/
+	
+	５．ターゲットデバイスのSDKのインストール
+		不要かもしれない
+	
+	６．バーコードスキャナプラグイン設定
+		config.xmlに以下の行を追加
+		<gap:plugin name="com.phonegap.plugins.barcodescanner" version="1.1.0" />
+		
+※参考：http://www.atmarkit.co.jp/ait/articles/1308/28/news014.html
+
+
+■開発方法
+	１．プロジェクト作成
+		コマンドラインで以下を実行。
+		phonegap create helloworld
+		
+	２．開発
+		任意のエディタで開発
+	
+	３．デバッグ
+		作成したプロジェクト内のindex.htmlをchromeで開き、F12でデバッガを表示する。
+		chromeで開く場合、コマンドラインオプションで「 --disable-web-security」を指定する
+		必要がある。
+	
+	４．ビルド
+		事前にコマンドラインの表示エリアを広げておく。
+		プロジェクトフォルダ内に移動してコマンドラインで以下を実行。
+		phonegap run android
+		
+		iOSの場合は以下のコマンド。
+		phonegap run ios
+		
+		※キーファイル（証明書）を登録する必要があると思われる。
+		キーファイルを取得するためには開発者登録をする必要があると思われる。
+		（年間約8500円が必要）
+		
+	５．インストール
+		バーコードが表示されるので、端末のバーコードリーダにて、
+		URLを解読し、該当のURLからアプリをダウンロードする。
+	
+	６．注意点
+		・ルートディレクトリに置いたjavascriptは読み込めない。
+	
+
+■プラグイン
+	●バーコードリーダ
+		./www/config.xmlに以下の定義を追加
+		
+		－－－－－定義－－－－－
+			<gap:plugin name="com.phonegap.plugins.barcodescanner" />
+			<feature name="http://api.phonegap.com/1.0/device" />
+		－－－－－定義－－－－－
+
+	●ファイルダウンロード
+		./www/config.xmlに以下の定義を追加
+		
+		－－－－－定義－－－－－
+			<access origin="http://www1.suzuki.co.jp" />
+			<feature name="http://api.phonegap.com/1.0/file"/>
+		－－－－－定義－－－－－
+		※access originはダウンロード元のサーバ名を指定する。
+		（ここに定義されていなければ、エラーとなる。）
+		※ダウンロード先のファイル名はPrefixが「file://」である必要がある。
+		「sdcard」配下に「test.jpg」としてダウンロードしたい場合は
+		「file:///sdcard/test.jpg」と定義する必要がある。
+		
+		
+	

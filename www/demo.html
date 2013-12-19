@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/phonegap.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/pgsqlite_plugin.js"></script>
+        <script type="text/javascript" src="js/lawnchair_pgsqlite_plugin_adapter.js"></script>
+        <script type="text/javascript" charset="utf-8" src="js/cordova-1.7.0.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+        <div>sqlitedb作成</div><button onClick="onOpenDB()">DB作成</button><br><br>
+        <div>警告ダイアログ表示の確認</div><button onClick="testaaa()">test</button><br><br>
+        <div>データベースを開く</div><button onClick="onOpenDB()">open database</button><br><br>
+        <div>テーブルを作成する（要DBオープン）</div><button onClick="onCreateTable()">create table</button><br><br>
+        <div>入力されたデータを登録する（要DBオープン）</div><button onClick="onInsertTable()">insert table</button><br><br>
+        <div>DBのデータを表示する（要DBオープン）</div><button onClick="onShowData()">show data</button><br><br>
+        <div>サーバ上のXMLを読み込む</div><button onClick="onLoadXml()">load xml</button><br><br>
+        <div>入力されたデータに前方一致する英単語を検索する</div><button onClick="onSendParameter()">send parameter</button><br><br>
+        
+        <div>データ入力エリア</div><input id="input_name" type="text"/>
+        
+        <table id="dataArea">
+        </table>
+        
+        <table id="xmlDataArea" border="3">
+        </table>
+        
+    </body>
+</html>

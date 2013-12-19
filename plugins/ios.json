@@ -1,0 +1,1 @@
+{"prepare_queue":{"installed":[],"uninstalled":[]},"config_munge":{"framework":{"libsqlite3.dylib":{"false":1}},"config.xml":{"/*":{"<feature name=\"SQLitePlugin\"><param name=\"ios-package\" value=\"SQLitePlugin\" /></feature>":1}}},"installed_plugins":{"com.phonegap.plugins.sqlite":{"PACKAGE_NAME":"com.phonegap.helloworld"}},"dependent_plugins":{}}
